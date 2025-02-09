@@ -31,11 +31,13 @@ const UserSchema = new Schema({
         default:true,
     },
     google_id:{
-        type:String
+        type:String,
+        default:null
     },
     createdBy:{
         type:Schema.Types.ObjectId,
-        ref:"user"
+        ref:"user",
+        default:null,
     }
 });
 const User = mongoose.model('User', UserSchema);

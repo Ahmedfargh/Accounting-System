@@ -22,3 +22,5 @@ const Products=new Schema({
         required:false
     }
 });
+const ProductModel=mongoose.Model("Products",Products);
+module.exports=ProductModel;

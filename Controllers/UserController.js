@@ -5,7 +5,7 @@ const controller={
     create:async function(req,res){
         req.body["password"]=await hashing.hash(req.body["password"],10);
         const data=new userModel(req.body);
-
+        console.log(data);
         try{
             const savedData=await data.save();
             console.log(savedData);

@@ -4,9 +4,9 @@ const router = require("./config/Route.js");
 const express = require("express");
 const cors = require("cors");
 let app = express();
-app.use("*",
+app.use(
   cors({
-    origin: "http://localhost:8080",
+    origin: "*",
     optionsSuccessStatus: 200,
   })
 );

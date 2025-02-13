@@ -2,6 +2,7 @@ const userModel = require("../Database/User.js");
 const hashing = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userObserver = require("../observers/UsersObserver.js");
+
 const controller = {
   create: async function (req, res) {
     req.body["password"] = await hashing.hash(req.body["password"], 10);
@@ -22,8 +23,9 @@ const controller = {
       const token = jwt.sign(
         { email: user["email"], name: user["name"] },
         user["password"],
-        { expiresIn: "1h" }
+        { expiresIn: "24h" }
       );
+      req.session.jwt_token=token;
       res.status(200).json({
         user: user,
         loging_status: "_DONE_", //ahmed farghly thabet

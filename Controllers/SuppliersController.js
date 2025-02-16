@@ -16,4 +16,16 @@ module.exports = {
         });
       });
   },
+  searchByName: function (req, res) {
+    let suppliers = supplierModel
+      .find({
+        name: new RegExp(req.query.name, "i"),
+      })
+      .then((results) => {
+        res.status(200).json(results);
+      })
+      .catch((error) => {
+        res.status(500).json(error);
+      });
+  },
 };

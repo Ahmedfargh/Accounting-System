@@ -12,6 +12,7 @@ const router = {
     app.get("/api/v1/count",authenticator.authenticatedJWTForGet, HRController.CoutEmployee);
     app.get("/api/v1/count/user",authenticator.authenticatedJWTForGet, UserController.CountUser);
     app.get("/api/v1/get/all/suppleirs",authenticator.authenticatedJWTForGet,supplierConroller.getAllSuppliers);
+    app.get("/api/v1/search/supplier/by/name",authenticator.authenticatedJWTForGet,supplierConroller.searchByName);
     return app;
   },
 };

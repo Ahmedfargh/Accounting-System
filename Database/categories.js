@@ -1,5 +1,5 @@
 const mongoose =require("mongoose");
-const Schema=mongoose;
+const {Schema}=mongoose;
 const CategorySchema=new Schema({
     name:{
         type:String,
@@ -11,8 +11,9 @@ const CategorySchema=new Schema({
     },
     Products:{
         type:Schema.Types.Array,
+        default:null,
     }
     
 });
-const CategoryModel=mongoose.model("Category",CategorySchema);
+const CategoryModel=mongoose.model("categories",CategorySchema);
 module.exports=CategoryModel;

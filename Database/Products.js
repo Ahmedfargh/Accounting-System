@@ -1,5 +1,5 @@
 const mongoose=require("mongoose");
-const Schema=mongoose;
+const {Schema}=mongoose;
 const Products=new Schema({
     name:{
         type:String,
@@ -20,7 +20,8 @@ const Products=new Schema({
     createdBy:{
         type:Schema.Types.ObjectId,
         required:false
-    }
+    },
+    
 });
-const ProductModel=mongoose.Model("Products",Products);
+const ProductModel=mongoose.model("Products",Products);
 module.exports=ProductModel;
